@@ -1,0 +1,53 @@
+extends layout
+
+block content
+  h2(class="text-center")= title
+  br
+  // Nav tabs
+  ul.nav.nav-tabs.justify-content-center(role='tablist')
+    li.nav-item
+      a.nav-link.active(data-toggle='tab' href='#home') Posts
+    li.nav-item
+      a.nav-link(data-toggle='tab' href='#menu1') Users
+    li.nav-item
+      a.nav-link(data-toggle='tab' href='#menu2') Join
+  // Tab panes
+  .tab-content
+    #home.container.tab-pane.active
+      br
+      h3 Posts
+      table#table1(data-toggle='table' data-url='./api/v1/posts')
+        thead
+          tr
+            th(data-field='userId') UserID
+            th(data-field='id') ID
+            th(data-field='title') Title
+            th(data-field='body') Body
+    #menu1.container.tab-pane.fade
+      br
+      h3 Users
+      table#table2(data-toggle='table' data-url='./api/v1/users')
+        thead
+          tr
+            th(data-field='id') ID
+            th(data-field='name') Name
+            th(data-field='username') User Name
+            th(data-field='email') Email
+            th(data-field='phone') Phone
+            th(data-field='website') Website
+    #menu2.container.tab-pane.fade
+      br
+      h3 Join Posts & Users
+      table#table3(data-toggle='table' data-url='./api/v1/join')
+        thead
+          tr
+            th(data-field='id') ID
+            th(data-field='userId') UserID
+            th(data-field='title') Title
+            th(data-field='name') Name
+            th(data-field='username') Username
+            th(data-field='email') Email
+block footer
+  script(src='/javascripts/jquery-3.4.1.min.js')
+  script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js' integrity='sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6' crossorigin='anonymous')
+  script(src='/javascripts/bootstrap-table.min.js')
